@@ -1,0 +1,22 @@
+@import "../../Common/variables.scss";
+
+nav {
+  display: flex;
+  height: 3.75rem;
+  padding: 0 1rem 0 1rem;
+  justify-content: space-between;
+  align-items: center;
+
+  div :first-child {
+    margin-right: 0.625rem;
+  }
+}
+
+#logo {
+  width: 6.5rem;
+  height: 1.625rem;
+}
+
+button {
+  @include button;
+}

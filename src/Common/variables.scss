@@ -1,0 +1,11 @@
+$primaryColor: #f4e041;
+$secondaryColor: #00bdd3;
+$backgroundColor: #f8f8f8;
+
+@mixin button {
+  width: 6.25rem;
+  height: 2.125rem;
+  border: none;
+  border-radius: 5rem;
+  background: $primaryColor;
+}
