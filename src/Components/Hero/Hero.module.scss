@@ -1,0 +1,47 @@
+@import "../../Common/variables.scss";
+
+.hero {
+  display: flex;
+  width: 100%;
+  height: 31.25rem;
+  align-items: center;
+  color: #fff;
+
+  .textContent {
+    flex-direction: column;
+    padding: 0 1rem 0 1rem;
+
+    h1 {
+      @include headingFont;
+    }
+
+    p {
+      @include textFont;
+    }
+  }
+
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("../../img/HeroBanner/heroBanner360.png") no-repeat;
+}
+
+@media screen and (max-width: $tabletDisplay) {
+  .hero {
+    background: url("../../img/HeroBanner/heroBanner768.png") no-repeat;
+  }
+}
+
+@media screen and (max-width: $laptopDisplay) {
+  .hero {
+    background: url("../../img/HeroBanner/heroBanner1024.png") no-repeat;
+  }
+}
+
+@media screen and (max-width: $monitorDisplay) {
+  .hero {
+    background: url("../../img/HeroBanner/heroBanner2560.png") no-repeat;
+  }
+}

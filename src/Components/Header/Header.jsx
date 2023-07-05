@@ -1,15 +1,16 @@
 import React from "react";
 import logo from "../../img/logo.svg";
-import styles from "./Header.styles.scss";
+import styles from "./Header.module.scss";
+import Button from "../Button/Button";
 
 const Header = () => {
   return (
     <header>
       <nav>
-        <img src={logo} href="#" alt="logo" id="logo"/>
+        <img src={logo} href="#" alt="logo" id="logo" />
         <div>
-          <button>Users</button>
-          <button>Sign up</button>
+          <Button value="Users" />
+          <Button value="Sign up" />
         </div>
       </nav>
     </header>
