@@ -1,0 +1,35 @@
+@import "../../Common/variables.scss";
+
+.content {
+  width: calc(100% - 2rem);
+  margin: 0 auto;
+
+  button {
+    margin-top: 1.87rem;
+  }
+}
+
+.usersList {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: $tabletDisplay) {
+  .usersList {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+  }
+}
+
+@media screen and (min-width: $laptopDisplay) and (max-width: $monitorDisplay) {
+  .usersList {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1.81rem;
+  }
+}
+
+@media screen and (min-width: $monitorDisplay) {
+  .content {
+    width: 100%;
+  }
+}

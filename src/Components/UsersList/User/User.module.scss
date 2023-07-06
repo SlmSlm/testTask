@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  height: 15.875rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 0.625rem;
+  background: #fff;
+
+  img {
+    width: 4.375rem;
+    height: 4.375rem;
+    border-radius: 4.375rem;
+  }
+
+  .textContent{
+    max-width: 20rem;
+  }
+
+  .name {
+    margin: 1.25rem 0 1.25rem 0;
+  }
+
+  p {
+    margin: 0;
+  }
+}
