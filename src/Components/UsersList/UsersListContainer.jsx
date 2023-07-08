@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { usersApi } from "../../API/api";
+import { api } from "../../API/api";
 import UsersList from "./UsersList";
 
 const UsersListContainer = () => {
@@ -9,8 +9,7 @@ const UsersListContainer = () => {
 
   async function getUsers() {
     setPage(page + 1);
-    const result = await usersApi.getUsers(page + 1);
-    console.log(result);
+    const result = await api.getUsers(page + 1);
     setShowMore(result.links.next_url ? true : false);
     const arr = [...users, ...result.users];
     return setUsers([...arr]);

@@ -1,6 +1,8 @@
-import "./App.css";
+import "./App.scss";
+
 import Header from "./Components/Header/Header";
 import Hero from "./Components/Hero/Hero";
+import SignUp from "./Components/SignUp/SignUp";
 import UsersListContainer from "./Components/UsersList/UsersListContainer";
 
 function App() {
@@ -9,6 +11,7 @@ function App() {
       <Header />
       <Hero />
       <UsersListContainer />
+      <SignUp />
     </div>
   );
 }
