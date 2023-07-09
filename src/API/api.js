@@ -5,11 +5,22 @@ const instance = axios.create({
 });
 
 export const api = {
-  getUsers(page = 1) {
-    return instance.get(`users?page=${page}&count=6`).then((resp) => resp.data);
+  async getUsers(page = 1) {
+    return await instance
+      .get(`users?page=${page}&count=6`)
+      .then((resp) => resp.data);
   },
 
-  getPositions() {
-    return instance.get(`/positions`).then((resp) => resp.data.positions);
+  async getPositions() {
+    return await instance.get(`/positions`).then((resp) => resp.data.positions);
+  },
+
+  async signUp(body) {
+    return await instance.post(`/users`, body, {
+      headers: {
+        Token: await instance.get(`/token`).then((resp) => resp.data.token),
+        "Content-Type": "multipart/form-data",
+      },
+    });
   },
 };

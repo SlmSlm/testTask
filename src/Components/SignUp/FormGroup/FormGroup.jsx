@@ -1,16 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../../../API/api";
+import Button from "../../Button/Button";
+import UploadInput from "../UploadInput/UploadInput";
 import styles from "./FormGroup.module.scss";
+import TextInput from "../TextInput/TextInput";
 
-const FormGroup = () => {
-  const [form, setForm] = useState({ name: "", email: "", phone: "" });
+const FormGroup = (props) => {
+  const [form, setForm] = useState({});
   const [positions, setPositions] = useState();
 
   const handleChange = (e) => {
     const target = e.target;
     const targetName = target.name;
 
+    if (target.name === "position_id") {
+      target.value = target.id;
+    }
+
     setForm((form) => ({ ...form, [targetName]: target.value }));
+  };
+
+  const signUp = async () => {
+    await api.signUp(form);
+    await props.addNewUser();
+    props.setRegistered(true);
   };
 
   useEffect(() => {
@@ -20,63 +33,63 @@ const FormGroup = () => {
   }, []);
 
   return (
-    <form action="">
-      <div className={styles.textInputGroup}>
-        <input
-          type="name"
-          name="name"
-          placeholder="Your name"
-          value={form.name || ""}
-          onChange={handleChange}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={form.email || ""}
-          onChange={handleChange}
-        />
-        <label htmlFor="phone">
-          <input
-            type="phone"
-            name="phone"
-            placeholder="Phone"
-            value={form.phone || ""}
+    <>
+      <h1>Working with POST request</h1>
+      <form>
+        <div className={styles.textInputGroup}>
+          <TextInput
+            type="name"
+            name="name"
+            placeholder="Your name"
+            value={form.name || ""}
             onChange={handleChange}
           />
-          <p>+38 (XXX) XXX - XX - XX</p>
-        </label>
-      </div>
+          <TextInput
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={form.email || ""}
+            onChange={handleChange}
+          />
+          <label htmlFor="phone">
+            <TextInput
+              type="phone"
+              name="phone"
+              placeholder="Phone"
+              value={form.phone || ""}
+              onChange={handleChange}
+            />
+            <p>+38 (XXX) XXX - XX - XX</p>
+          </label>
+        </div>
 
-      <div className={styles.positions}>
-        <p>Select your position</p>
-        {positions &&
-          positions.map((position) => {
-            return (
-              <div className={styles.position} key={position.id}>
-                <input
-                  type="radio"
-                  name="position"
-                  id={position.id}
-                  value={position.name}
-                  onChange={handleChange}
-                />
-                <label htmlFor={position.id}>
-                  <p>{position.name}</p>
-                </label>
-              </div>
-            );
-          })}
-      </div>
+        <div className={styles.positions}>
+          <p>Select your position</p>
+          {positions &&
+            positions.map((position) => {
+              return (
+                <div className={styles.position} key={position.id}>
+                  <input
+                    type="radio"
+                    name="position_id"
+                    id={position.id}
+                    value={position.name}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor={position.id}>
+                    <p>{position.name}</p>
+                  </label>
+                </div>
+              );
+            })}
+        </div>
 
-      <div className={styles.photoInput} style={{ marginBottom: "50px" }}>
-        <label className={styles.fileInputLabel} for="fileUpload">
-          Upload
-        </label>
-        <input type="file" id="fileUpload" />
-        
+        <UploadInput handleChange={handleChange} setForm={setForm} />
+      </form>
+      <div onClick={() => signUp()}>
+        <Button value={"Sign up"} />
       </div>
-    </form>
+    </>
   );
 };
 

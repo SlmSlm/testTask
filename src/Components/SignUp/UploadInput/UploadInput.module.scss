@@ -1,0 +1,71 @@
+@import "../../../Common/variables.scss";
+
+.uploadInput {
+  margin-bottom: 3.125rem;
+}
+
+.uploadInputLabel {
+  display: flex;
+  cursor: pointer;
+}
+
+.hasError {
+  .uploadButton {
+    border: 2px solid $errorColor;
+    padding: 0 0.875rem;
+  }
+  .uploadField,
+  .uploadSelected {
+    border: 2px solid $errorColor;
+    border-left: none;
+  }
+}
+
+.errorMessage {
+  font-family: "Asap", sans-serif;
+  display: block;
+  text-align: left;
+  margin-left: 1rem;
+  margin-top: 0.25rem;
+  color: $errorColor;
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+}
+
+.uploadButton {
+  box-sizing: border-box;
+  display: block;
+  height: 3.375rem;
+  width: 5.1875rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 4px 0px 0px 4px;
+  padding: 0 0.9375rem;
+}
+
+.uploadField {
+  height: 3.375rem;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  color: #7e7e7e;
+  border: 1px solid $inputBorderColor;
+  border-left: none;
+  border-radius: 0px 4px 4px 0px;
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+}
+
+.uploadSelected {
+  color: black;
+}
+
+input[type="file"] {
+  visibility: hidden;
+  position: absolute;
+  z-index: -1;
+}

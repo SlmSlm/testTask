@@ -7,7 +7,7 @@
     padding-left: 1rem;
     margin-top: 3.12rem;
     border-radius: 0.25rem;
-    border: 1px solid #d0cfcf;
+    border: 1px solid $inputBorderColor;
     background: $backgroundColor;
   }
 
@@ -45,22 +45,4 @@
   p {
     margin: 0;
   }
-}
-
-.photo {
-  height: 3.375rem;
-}
-
-input[type="file"]::file-selector-button {
-  display: none;
-}
-
-.fileInputLabel {
-  display: block;
-  height: 54px;
-  width: 83px;
-  line-height: 54px;
-  border: 1px solid rgba(0, 0, 0, 0.87);
-  border-radius: 4px 0px 0px 4px;
-  cursor: pointer;
 }

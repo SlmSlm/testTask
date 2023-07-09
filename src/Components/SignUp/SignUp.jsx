@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
-import FormExample from "./FormGroup/FormGroup";
+import FormGroup from "./FormGroup/FormGroup";
 import styles from "./SignUp.module.scss";
+import SuccessRegistration from "./SuccessRegistration/SuccessRegistration";
 
-const SignUp = () => {
+const SignUp = (props) => {
+  const [registered, setRegistered] = useState(false);
+
   return (
     <div className={styles.content}>
-      <h1>Working with POST request</h1>
-      <FormExample />
+      {!registered ? (
+        <FormGroup
+          addNewUser={props.addNewUser}
+          page={props.page}
+          setRegistered={setRegistered}
+        />
+      ) : (
+        <SuccessRegistration />
+      )}
     </div>
   );
 };
