@@ -85,16 +85,17 @@ const FormGroup = (props) => {
             positions.map((position, index) => {
               return (
                 <div className={styles.position} key={position.id}>
-                  <input
-                    type="radio"
-                    name="position_id"
-                    id={position.id}
-                    value={position.name}
-                    checked={index === 0}
-                    onChange={handleChange}
-                  />
-                  <label htmlFor={position.id}>
-                    <p>{position.name}</p>
+                  <label htmlFor={position.id} className={styles.radioLabel}>
+                    <input
+                      type="radio"
+                      name="position_id"
+                      id={position.id}
+                      value={position.name}
+                      onChange={handleChange}
+                      defaultChecked={index === 0}
+                    />
+                    <span className={styles.customRadio} />
+                    {position.name}
                   </label>
                 </div>
               );

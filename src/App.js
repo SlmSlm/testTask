@@ -11,19 +11,21 @@ function App() {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(0);
   const [showMore, setShowMore] = useState();
+  const [loading, setLoading] = useState(false);
 
   async function getUsers() {
+    setLoading(true);
     setPage(page + 1);
     const result = await api.getUsers(page + 1);
     setShowMore(result.links.next_url ? true : false);
     const arr = [...users, ...result.users];
-    return setUsers([...arr]);
+    setUsers([...arr]);
+    setLoading(false);
   }
 
   async function addNewUser() {
     const result = await api.getUsers();
 
-    // return setUsers([result.users[0], ...users]);
     return setUsers([...result.users]);
   }
 
@@ -35,7 +37,12 @@ function App() {
     <div className="App">
       <Header />
       <Hero />
-      <UsersList users={users} getUsers={getUsers} showMore={showMore} />
+      <UsersList
+        users={users}
+        getUsers={getUsers}
+        showMore={showMore}
+        loading={loading}
+      />
       <SignUp addNewUser={addNewUser} />
     </div>
   );

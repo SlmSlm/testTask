@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "./TextInput.module.scss";
 
 const TextInput = ({
   type,
