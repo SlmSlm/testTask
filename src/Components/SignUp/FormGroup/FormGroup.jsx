@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../../../API/api";
 import Button from "../../Button/Button";
+import TextInput from "../TextInput/TextInput";
 import UploadInput from "../UploadInput/UploadInput";
 import styles from "./FormGroup.module.scss";
-import TextInput from "../TextInput/TextInput";
 
 const FormGroup = (props) => {
   const [form, setForm] = useState({});
   const [positions, setPositions] = useState();
+  const [validatedInputs, setValidatedInputs] = useState([]);
 
   const handleChange = (e) => {
     const target = e.target;
@@ -18,6 +19,18 @@ const FormGroup = (props) => {
     }
 
     setForm((form) => ({ ...form, [targetName]: target.value }));
+  };
+
+  const validateForm = (name, action) => {
+    if (action === "add" && !validatedInputs.includes(name)) {
+      setValidatedInputs((validatedInputs) => [...validatedInputs, name]);
+    } else if (action === "remove") {
+      const arr = validatedInputs;
+      arr.map((item, index) => {
+        if (item === name) arr.splice(index, 1);
+        return setValidatedInputs(arr);
+      });
+    }
   };
 
   const signUp = async () => {
@@ -42,31 +55,34 @@ const FormGroup = (props) => {
             name="name"
             placeholder="Your name"
             value={form.name || ""}
+            helperText="Name"
             onChange={handleChange}
+            validateForm={validateForm}
           />
           <TextInput
             type="email"
             name="email"
             placeholder="Email"
             value={form.email || ""}
+            helperText="example@gmail.com"
             onChange={handleChange}
+            validateForm={validateForm}
           />
-          <label htmlFor="phone">
-            <TextInput
-              type="phone"
-              name="phone"
-              placeholder="Phone"
-              value={form.phone || ""}
-              onChange={handleChange}
-            />
-            <p>+38 (XXX) XXX - XX - XX</p>
-          </label>
+          <TextInput
+            type="phone"
+            name="phone"
+            placeholder="Phone"
+            value={form.phone || ""}
+            helperText="+38 (XXX) XXX - XX - XX"
+            onChange={handleChange}
+            validateForm={validateForm}
+          />
         </div>
 
         <div className={styles.positions}>
           <p>Select your position</p>
           {positions &&
-            positions.map((position) => {
+            positions.map((position, index) => {
               return (
                 <div className={styles.position} key={position.id}>
                   <input
@@ -74,6 +90,7 @@ const FormGroup = (props) => {
                     name="position_id"
                     id={position.id}
                     value={position.name}
+                    checked={index === 0}
                     onChange={handleChange}
                   />
                   <label htmlFor={position.id}>
@@ -84,10 +101,14 @@ const FormGroup = (props) => {
             })}
         </div>
 
-        <UploadInput handleChange={handleChange} setForm={setForm} />
+        <UploadInput
+          handleChange={handleChange}
+          setForm={setForm}
+          validateForm={validateForm}
+        />
       </form>
       <div onClick={() => signUp()}>
-        <Button value={"Sign up"} />
+        <Button value={"Sign up"} disabled={validatedInputs.length !== 4} />
       </div>
     </>
   );

@@ -15,14 +15,17 @@ const UploadInput = (props) => {
     if (!file) {
       setErrorMessage("");
       setSelectedFile("");
+      props.validateForm("photo", "remove");
       return;
     }
     if (!isAllowedFileType(file)) {
       setErrorMessage(
         "The filetype is not allowed, consider using .jpeg or .png images only."
       );
+      props.validateForm("photo", "remove");
     } else {
       setErrorMessage("");
+      props.validateForm("photo", "add");
     }
     setSelectedFile(file.name);
     props.setForm((form) => ({ ...form, photo: file }));
