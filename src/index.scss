@@ -8,8 +8,13 @@ body {
     @include headingFont;
   }
 
-  p, button , span{
+  p,
+  button,
+  span,
+  div {
     @include textFont;
+
+    box-sizing: border-box;
   }
 
   background: $backgroundColor;

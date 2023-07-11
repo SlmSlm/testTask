@@ -1,10 +1,10 @@
 @import "../../../Common/variables.scss";
 
 input {
-  width: 100%;
+  width: calc(100% - 1.3rem);
   height: 3.375rem;
   padding-left: 1rem;
-  margin-top: 3.12rem;
+  margin-top: calc(3.12rem - 1.125rem);
   border-radius: 0.25rem;
   border: 1px solid $inputBorderColor;
   background: $backgroundColor;
@@ -23,20 +23,29 @@ label {
     visibility: hidden;
     width: fit-content;
     position: absolute;
-    top: -1.8rem;
+    top: -1.7rem;
     left: calc(1rem - 0.25rem);
     padding: 0.13rem 0.25rem;
     background: $backgroundColor;
+
+    @include helperText;
   }
 
   .labelVisible {
     visibility: visible;
   }
+
+  .labelHasError {
+    border: none;
+    color: $errorColor;
+  }
 }
 
 .helperText {
   text-align: left;
+  margin-top: 0.25rem;
   margin-left: 1rem;
+  @include helperText;
 }
 
 .hasError {

@@ -55,35 +55,33 @@ const FormGroup = (props) => {
         <Preloader />
       ) : (
         <form>
-          <div className={styles.textInputGroup}>
-            <TextInput
-              type="name"
-              name="name"
-              placeholder="Your name"
-              value={form.name || ""}
-              helperText="Name"
-              onChange={handleChange}
-              validateForm={validateForm}
-            />
-            <TextInput
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={form.email || ""}
-              helperText="example@gmail.com"
-              onChange={handleChange}
-              validateForm={validateForm}
-            />
-            <TextInput
-              type="phone"
-              name="phone"
-              placeholder="Phone"
-              value={form.phone || ""}
-              helperText="+38 (XXX) XXX - XX - XX"
-              onChange={handleChange}
-              validateForm={validateForm}
-            />
-          </div>
+          <TextInput
+            type="name"
+            name="name"
+            placeholder="Your name"
+            value={form.name || ""}
+            helperText="Name"
+            onChange={handleChange}
+            validateForm={validateForm}
+          />
+          <TextInput
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={form.email || ""}
+            helperText="example@gmail.com"
+            onChange={handleChange}
+            validateForm={validateForm}
+          />
+          <TextInput
+            type="phone"
+            name="phone"
+            placeholder="Phone"
+            value={form.phone || ""}
+            helperText="+38 (XXX) XXX - XX - XX"
+            onChange={handleChange}
+            validateForm={validateForm}
+          />
 
           <div className={styles.positions}>
             <p>Select your position</p>

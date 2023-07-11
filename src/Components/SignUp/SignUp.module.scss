@@ -1,8 +1,8 @@
-//  @import '~bootstrap/scss/bootstrap';
-
-
-.content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.content {
+  display: flex;
+  width: calc(100% - 2rem);
+  margin: 0 auto;
+  margin-top: 8.75rem;
+  flex-direction: column;
+  align-items: center;
 }

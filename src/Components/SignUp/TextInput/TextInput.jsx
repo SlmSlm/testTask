@@ -65,7 +65,7 @@ const TextInput = ({
         <div
           className={`${styles.label} ${
             value.length > 0 ? styles.labelVisible : ""
-          }`}
+          } ${errorMessage && styles.labelHasError}`}
         >
           {name}
         </div>

@@ -1,13 +1,23 @@
 @import "../../../Common/variables.scss";
 
+form {
+  width: 100%;
+}
+
 .positions {
   display: flex;
+  margin-top: 2.69rem;
   flex-direction: column;
   align-items: flex-start;
+
+  p {
+    margin-bottom: 0.69rem;
+  }
 }
 
 .position {
   display: flex;
+  margin-bottom: 0.44rem;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -64,4 +74,10 @@ input[type="radio"]:checked + .customRadio {
   border-radius: 100%;
   margin-right: 0.75rem;
   box-sizing: border-box;
+}
+
+@media screen and (min-width: $tabletDisplay) {
+  form {
+    width: 23.8rem;
+  }
 }
