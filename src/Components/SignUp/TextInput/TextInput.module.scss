@@ -1,11 +1,48 @@
 @import "../../../Common/variables.scss";
 
-.errorMessage {
-  @include errorMessage;
+input {
+  width: 100%;
+  height: 3.375rem;
+  padding-left: 1rem;
+  margin-top: 3.12rem;
+  border-radius: 0.25rem;
+  border: 1px solid $inputBorderColor;
+  background: $backgroundColor;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+    outline-offset: 0;
+  }
+}
+
+label {
+  position: relative;
+
+  .label {
+    visibility: hidden;
+    width: fit-content;
+    position: absolute;
+    top: -1.8rem;
+    left: calc(1rem - 0.25rem);
+    padding: 0.13rem 0.25rem;
+    background: $backgroundColor;
+  }
+
+  .labelVisible {
+    visibility: visible;
+  }
+}
+
+.helperText {
+  text-align: left;
+  margin-left: 1rem;
 }
 
 .hasError {
-  input {
-    border: 2px solid $errorColor;
-  }
+  border: 2px solid $errorColor;
+}
+
+.errorMessage {
+  @include errorMessage;
 }

@@ -9,8 +9,12 @@ const Header = () => {
       <nav>
         <img src={logo} href="#" alt="logo" id="logo" />
         <div>
-          <Button value="Users" />
-          <Button value="Sign up" />
+          <a href="/#users">
+            <Button value="Users" />
+          </a>
+          <a href="/#signUp">
+            <Button value="Sign up" />
+          </a>
         </div>
       </nav>
     </header>

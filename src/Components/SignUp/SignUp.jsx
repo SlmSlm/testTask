@@ -8,12 +8,14 @@ const SignUp = (props) => {
   const [registered, setRegistered] = useState(false);
 
   return (
-    <div className={styles.content}>
+    <div className={styles.content} id="signUp">
       {!registered ? (
         <FormGroup
           addNewUser={props.addNewUser}
           page={props.page}
           setRegistered={setRegistered}
+          loading={props.loading}
+          setPreloader={props.setPreloader}
         />
       ) : (
         <SuccessRegistration />

@@ -8,7 +8,7 @@ const User = ({ user }) => {
       return (
         <span className={styles.tooltip}>
           {`${string.slice(0, 44)}...`}
-          <span class={styles.tooltipText}>{string}</span>
+          <span className={styles.tooltipText}>{string}</span>
         </span>
       );
     } else {

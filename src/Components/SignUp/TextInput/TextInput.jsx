@@ -61,23 +61,26 @@ const TextInput = ({
 
   return (
     <>
-      <label
-        htmlFor={name}
-        className={`${styles.uploadInputLabel} ${
-          errorMessage ? styles.hasError : ""
-        }`}
-      >
+      <label htmlFor={name}>
+        <div
+          className={`${styles.label} ${
+            value.length > 0 ? styles.labelVisible : ""
+          }`}
+        >
+          {name}
+        </div>
         <input
           type={type}
           name={name}
           placeholder={placeholder}
           value={value}
           onChange={validateInput}
+          className={errorMessage ? styles.hasError : ""}
         />
         {errorMessage ? (
-          <p className={styles.errorMessage}>{errorMessage}</p>
+          <span className={styles.errorMessage}>{errorMessage}</span>
         ) : (
-          <p>{helperText}</p>
+          <div className={styles.helperText}>{helperText}</div>
         )}
       </label>
     </>

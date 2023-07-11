@@ -6,7 +6,7 @@ import Preloader from "../Preloader/Preloader";
 
 const UsersList = (props) => {
   return (
-    <div className={styles.content}>
+    <div className={styles.content} id="users">
       <h1>Working with GET request</h1>
       <div className={styles.usersList}>
         {props.users.map((user) => {

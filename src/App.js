@@ -14,13 +14,13 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   async function getUsers() {
-    setLoading(true);
+    setPreloader(true);
     setPage(page + 1);
     const result = await api.getUsers(page + 1);
     setShowMore(result.links.next_url ? true : false);
     const arr = [...users, ...result.users];
     setUsers([...arr]);
-    setLoading(false);
+    setPreloader(false);
   }
 
   async function addNewUser() {
@@ -28,6 +28,10 @@ function App() {
 
     return setUsers([...result.users]);
   }
+
+  const setPreloader = (value) => {
+    return setLoading(value);
+  };
 
   useEffect(() => {
     getUsers();
@@ -43,7 +47,11 @@ function App() {
         showMore={showMore}
         loading={loading}
       />
-      <SignUp addNewUser={addNewUser} />
+      <SignUp
+        addNewUser={addNewUser}
+        loading={loading}
+        setPreloader={setPreloader}
+      />
     </div>
   );
 }
