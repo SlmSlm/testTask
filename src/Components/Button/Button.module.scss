@@ -4,10 +4,13 @@ button {
   // width: 6.25rem;
   // height: 2.125rem;
   padding: 0.25rem 1.80rem;
+  color: black;
   border: none;
   border-radius: 5rem;
   background: $primaryColor;
   cursor: pointer;
+
+  @include textFont;
 
   &:hover {
     background: #ffe302;

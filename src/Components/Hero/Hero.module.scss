@@ -26,23 +26,23 @@
       rgba(0, 0, 0, 0.5) 0%,
       rgba(0, 0, 0, 0.5) 100%
     ),
-    url("../../img/HeroBanner/heroBanner360.png") no-repeat;
+    url("../../img/HeroBanner/heroBanner360.avif") no-repeat;
 }
 
 @media screen and (min-width: $mobileDisplay) and (max-width: $tabletDisplay) {
   .hero {
-    background: url("../../img/HeroBanner/heroBanner768.png") no-repeat;
+    background: url("../../img/HeroBanner/heroBanner768.avif") no-repeat;
   }
 }
 
 @media screen and (min-width: $tabletDisplay) and (max-width: $laptopDisplay) {
   .hero {
-    background: url("../../img/HeroBanner/heroBanner1024.png") no-repeat;
+    background: url("../../img/HeroBanner/heroBanner1024.avif") no-repeat;
   }
 }
 
 @media screen and (min-width: $laptopDisplay) {
   .hero {
-    background: url("../../img/HeroBanner/heroBanner2560.png") no-repeat;
+    background: url("../../img/HeroBanner/heroBanner2560.avif") no-repeat;
   }
 }
