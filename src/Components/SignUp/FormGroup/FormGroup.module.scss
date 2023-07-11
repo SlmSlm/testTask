@@ -9,6 +9,12 @@
     border-radius: 0.25rem;
     border: 1px solid $inputBorderColor;
     background: $backgroundColor;
+    cursor: pointer;
+
+    &:focus {
+      outline: 0;
+      outline-offset: 0;
+    }
   }
 
   label {

@@ -1,0 +1,11 @@
+@import "../../../Common/variables.scss";
+
+.errorMessage {
+  @include errorMessage;
+}
+
+.hasError {
+  input {
+    border: 2px solid $errorColor;
+  }
+}

@@ -3,6 +3,19 @@ import photoCover from "../../../img/photoCover.svg";
 import styles from "./User.module.scss";
 
 const User = ({ user }) => {
+  const textHandler = (string) => {
+    if (string.length >= 44) {
+      return (
+        <span className={styles.tooltip}>
+          {`${string.slice(0, 44)}...`}
+          <span class={styles.tooltipText}>{string}</span>
+        </span>
+      );
+    } else {
+      return <span>{string}</span>;
+    }
+  };
+
   const checkPhoto = (e) => {
     e.target.src = photoCover;
   };
@@ -11,10 +24,10 @@ const User = ({ user }) => {
     <div className={styles.card}>
       <img src={user.photo} alt="User" onError={checkPhoto} />
       <div className={styles.textContent}>
-        <p className={styles.name}>{user.name}</p>
-        <p>{user.position}</p>
-        <p>{user.email}</p>
-        <p>{user.phone}</p>
+        {textHandler(user.name)}
+        {textHandler(user.position)}
+        {textHandler(user.email)}
+        {textHandler(user.phone)}
       </div>
     </div>
   );

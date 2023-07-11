@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./TextInput.module.scss";
 
 const TextInput = ({
   type,
@@ -35,6 +36,9 @@ const TextInput = ({
       if (!value.match(emailPattern)) {
         setErrorMessage("email must be a valid email according to RFC2822");
         action = "remove";
+      } else if (value.length >= 100) {
+        setErrorMessage("The email may not be greater than 100 characters");
+        action = "remove";
       } else {
         setErrorMessage("");
         action = "add";
@@ -57,7 +61,12 @@ const TextInput = ({
 
   return (
     <>
-      <label htmlFor={name}>
+      <label
+        htmlFor={name}
+        className={`${styles.uploadInputLabel} ${
+          errorMessage ? styles.hasError : ""
+        }`}
+      >
         <input
           type={type}
           name={name}
@@ -66,7 +75,7 @@ const TextInput = ({
           onChange={validateInput}
         />
         {errorMessage ? (
-          <p className="errorMessage">{errorMessage}</p>
+          <p className={styles.errorMessage}>{errorMessage}</p>
         ) : (
           <p>{helperText}</p>
         )}
