@@ -4,27 +4,35 @@
   width: calc(100% - 2rem);
   margin: 0 auto;
 
-  button {
-    margin-top: 1.87rem;
+  h1 {
+    margin-top: 8.75rem;
   }
 }
 
 .usersList {
   display: grid;
+  margin: 3.12rem 0;
   grid-template-columns: 1fr;
 }
 
-@media screen and (min-width: $tabletDisplay) {
+@media screen and (min-width: $tabletDisplay) and (max-width: $laptopDisplay) {
+  .content {
+    width: calc(100% - 4rem);
+  }
   .usersList {
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 1rem;
+    grid-gap: 1rem;
   }
 }
 
-@media screen and (min-width: $laptopDisplay) and (max-width: $monitorDisplay) {
+@media screen and (min-width: $laptopDisplay) {
+  .content {
+    width: calc(100% - 7.5rem);
+  }
+
   .usersList {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 1.81rem;
+    grid-gap: 1.81rem;
   }
 }
 

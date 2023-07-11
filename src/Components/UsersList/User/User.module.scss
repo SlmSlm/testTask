@@ -1,29 +1,37 @@
+@import "../../../Common/variables.scss";
+
 .card {
   display: flex;
-  height: 15.875rem;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 1.25rem;
   padding: 1.25rem;
+  margin-bottom: 1.25rem;
   border-radius: 0.625rem;
   background: #fff;
 
-  img {
-    width: 4.375rem;
-    height: 4.375rem;
-    border-radius: 4.375rem;
+  &:last-child {
+    margin-bottom: 0;
   }
+}
 
-  .textContent {
-    max-width: 20rem;
-    display: flex;
-    flex-direction: column;
-  }
+img {
+  width: 4.375rem;
+  height: 4.375rem;
+  border-radius: 4.375rem;
+}
+
+.textContent {
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
 
   p {
     margin: 0;
     white-space: nowrap;
+  }
+  
+  span:first-child {
+    margin: 1.25rem 0;
   }
 }
 
@@ -37,20 +45,26 @@
 }
 
 .tooltip .tooltipText {
-  position: absolute;
-  visibility: hidden;
   width: -webkit-fill-available;
+  position: absolute;
+  margin: 0;
+  padding: 0.1875rem 1rem;
+  border-radius: 0.25rem;
   top: 100%;
   left: 50%;
   background-color: black;
   color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
   overflow-wrap: break-word;
+  visibility: hidden;
   z-index: 1;
 }
 
 .tooltip:hover .tooltipText {
   visibility: visible;
+}
+
+@media screen and (min-width: $tabletDisplay) {
+  .card {
+    margin: 0;
+  }
 }

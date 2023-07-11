@@ -24,7 +24,7 @@ const User = ({ user }) => {
     <div className={styles.card}>
       <img src={user.photo} alt="User" onError={checkPhoto} />
       <div className={styles.textContent}>
-        {textHandler(user.name)}
+        {textHandler(user.name)} 
         {textHandler(user.position)}
         {textHandler(user.email)}
         {textHandler(user.phone)}
