@@ -3,15 +3,13 @@
 @import "./Common/variables.scss";
 
 body {
-  
   margin: 0;
   h1 {
     @include headingFont;
   }
 
-  p {
-    @include textFont;
-  }
+  @include textFont;
+
   background: $backgroundColor;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

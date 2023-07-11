@@ -12,7 +12,7 @@ $inputBorderColor: #d0cfcf;
 
 @mixin headingFont {
   font-size: 2.5rem;
-  font-family: Nunito;
+  font-family: "Nunito", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 2.5rem;
@@ -20,7 +20,7 @@ $inputBorderColor: #d0cfcf;
 
 @mixin textFont {
   font-size: 1rem;
-  font-family: Nunito;
+  font-family: "Nunito", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.625rem;

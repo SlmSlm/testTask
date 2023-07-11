@@ -8,11 +8,13 @@ button {
   background: $primaryColor;
   cursor: pointer;
 
+  @include textFont;
+
   &:hover {
-    background: #FFE302;
+    background: #ffe302;
   }
 
-  &:disabled{
-    background: #B4B4B4;
+  &:disabled {
+    background: #b4b4b4;
   }
 }

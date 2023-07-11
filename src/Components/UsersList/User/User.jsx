@@ -7,7 +7,7 @@ const User = ({ user }) => {
     if (string.length >= 44) {
       return (
         <span className={styles.tooltip}>
-          {`${string.slice(0, 44)}...`}
+          {`${string.slice(0, 24)}...`}
           <span className={styles.tooltipText}>{string}</span>
         </span>
       );

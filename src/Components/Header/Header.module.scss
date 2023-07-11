@@ -1,9 +1,14 @@
 @import "../../Common/variables.scss";
 
 nav {
+  img {
+    width: 6.5rem;
+    height: 1.625rem;
+  }
+
   display: flex;
   height: 3.75rem;
-  padding: 0 1rem 0 1rem;
+  padding: 0 1rem;
   justify-content: space-between;
   align-items: center;
 
@@ -12,7 +17,20 @@ nav {
   }
 }
 
-#logo {
-  width: 6.5rem;
-  height: 1.625rem;
+@media screen and (min-width: $tabletDisplay) and (max-width: $laptopDisplay) {
+  nav {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (min-width: $laptopDisplay) and (max-width: $monitorDisplay) {
+  nav {
+    padding: 0 3.75rem;
+  }
+}
+
+@media screen and (min-width: $monitorDisplay) {
+  nav {
+    padding: 0;
+  }
 }
