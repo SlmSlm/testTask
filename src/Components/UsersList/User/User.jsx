@@ -22,7 +22,7 @@ const User = ({ user }) => {
 
   return (
     <div className={styles.card}>
-      <img src={user.photo} alt="User" onError={checkPhoto} />
+      <img src={user.photo} alt="User" onError={checkPhoto} loading="lazy"/>
       <div className={styles.textContent}>
         {textHandler(user.name)} 
         {textHandler(user.position)}
