@@ -3,48 +3,48 @@ import styles from "./Hero.module.scss";
 import Button from "../Button/Button";
 
 const Hero = () => {
-  document.addEventListener("DOMContentLoaded", function () {
-    let lazyLoadImages;
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   let lazyLoadImages;
 
-    if ("IntersectionObserver" in window) {
-      lazyLoadImages = document.querySelectorAll(".lazy");
-      let imageObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            let image = entry.target;
-            image.classList.remove("lazy");
-            imageObserver.unobserve(image);
-          }
-        });
-      });
+  //   if ("IntersectionObserver" in window) {
+  //     lazyLoadImages = document.querySelectorAll(".lazy");
+  //     let imageObserver = new IntersectionObserver(function (entries) {
+  //       entries.forEach(function (entry) {
+  //         if (entry.isIntersecting) {
+  //           let image = entry.target;
+  //           image.classList.remove("lazy");
+  //           imageObserver.unobserve(image);
+  //         }
+  //       });
+  //     });
 
-      lazyLoadImages.forEach(function (image) {
-        imageObserver.observe(image);
-      });
-    } else {
-      let lazyLoadThrottleTimeout;
-      lazyLoadImages = document.querySelectorAll(".lazy");
+  //     lazyLoadImages.forEach(function (image) {
+  //       imageObserver.observe(image);
+  //     });
+  //   } else {
+  //     let lazyLoadThrottleTimeout;
+  //     lazyLoadImages = document.querySelectorAll(".lazy");
 
-      function lazyLoad() {
-        if (lazyLoadThrottleTimeout) {
-          clearTimeout(lazyLoadThrottleTimeout);
-        }
+  //     function lazyLoad() {
+  //       if (lazyLoadThrottleTimeout) {
+  //         clearTimeout(lazyLoadThrottleTimeout);
+  //       }
 
-        lazyLoadThrottleTimeout = setTimeout(function () {
-          if (lazyLoadImages.length === 0) {
-            window.removeEventListener("resize", lazyLoad);
-            window.removeEventListener("orientationChange", lazyLoad);
-          }
-        }, 20);
-      }
+  //       lazyLoadThrottleTimeout = setTimeout(function () {
+  //         if (lazyLoadImages.length === 0) {
+  //           window.removeEventListener("resize", lazyLoad);
+  //           window.removeEventListener("orientationChange", lazyLoad);
+  //         }
+  //       }, 20);
+  //     }
 
-      window.addEventListener("resize", lazyLoad);
-      window.addEventListener("orientationChange", lazyLoad);
-    }
-  });
+  //     window.addEventListener("resize", lazyLoad);
+  //     window.addEventListener("orientationChange", lazyLoad);
+  //   }
+  // });
 
   return (
-    <div className={`${styles.hero} lazy`}>
+    <div className={styles.hero}>
       <div className={styles.textContent}>
         <h1>Test assignment for front-end developer</h1>
         <p>
