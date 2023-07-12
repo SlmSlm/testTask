@@ -115,6 +115,7 @@ const FormGroup = (props) => {
           <UploadInput
             handleChange={handleChange}
             setForm={setForm}
+            form={form}
             validateForm={validateForm}
           />
         </form>

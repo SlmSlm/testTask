@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const UploadInput = (props) => {
   const placeholder = "Upload your photo";
-  const [selectedFile, setSelectedFile] = useState("");
+  const [selectedFile, setSelectedFile] = useState(props.form.photo || "");
   const [errorMessage, setErrorMessage] = useState("");
 
   const isAllowedFileType = (file) => {
@@ -16,18 +16,19 @@ const UploadInput = (props) => {
       setErrorMessage("");
       setSelectedFile("");
       props.validateForm("photo", "remove");
-      return;
     }
     if (!isAllowedFileType(file)) {
       setErrorMessage(
         "The filetype is not allowed, consider using .jpeg or .png images only."
       );
       props.validateForm("photo", "remove");
+    } else if (file.size > 5000000) {
+      setErrorMessage("file size must be less than 5MB.");
     } else {
       setErrorMessage("");
       props.validateForm("photo", "add");
     }
-    setSelectedFile(file.name);
+    setSelectedFile(file);
     props.setForm((form) => ({ ...form, photo: file }));
   };
 
@@ -45,7 +46,7 @@ const UploadInput = (props) => {
             selectedFile ? styles.uploadSelected : ""
           }`}
         >
-          {selectedFile || placeholder}
+          {selectedFile.name || placeholder}
         </span>
       </label>
       {errorMessage ? (
