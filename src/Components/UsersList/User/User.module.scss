@@ -45,12 +45,13 @@ img {
 }
 
 .tooltip .tooltipText {
+  width: -webkit-fill-available;
   position: absolute;
   margin: 0;
   padding: 0.1875rem 1rem;
   border-radius: 0.25rem;
   top: 100%;
-  left: 50%;
+  left: 10%;
   background-color: black;
   color: #fff;
   overflow-wrap: anywhere;
