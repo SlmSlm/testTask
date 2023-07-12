@@ -29,7 +29,7 @@ img {
     margin: 0;
     white-space: nowrap;
   }
-  
+
   span:first-child {
     margin: 1.25rem 0;
   }
@@ -45,7 +45,6 @@ img {
 }
 
 .tooltip .tooltipText {
-  width: -webkit-fill-available;
   position: absolute;
   margin: 0;
   padding: 0.1875rem 1rem;
@@ -54,7 +53,7 @@ img {
   left: 50%;
   background-color: black;
   color: #fff;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   visibility: hidden;
   z-index: 1;
 }

@@ -10,6 +10,7 @@ const FormGroup = (props) => {
   const [form, setForm] = useState({ position_id: 1 });
   const [positions, setPositions] = useState();
   const [validatedInputs, setValidatedInputs] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const target = e.target;
@@ -35,11 +36,16 @@ const FormGroup = (props) => {
   };
 
   const signUp = async () => {
-    props.setPreloader(true);
-    await api.signUp(form);
-    await props.addNewUser();
-    props.setRegistered(true);
-    props.setPreloader(false);
+    setLoading(true);
+    try {
+      await api.signUp(form);
+      await props.addNewUser();
+      props.setRegistered(true);
+    } catch (e) {
+      console.error(e.response.data.message);
+      alert(e.response.data.message);
+    }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -51,7 +57,7 @@ const FormGroup = (props) => {
   return (
     <>
       <h1>Working with POST request</h1>
-      {props.loading ? (
+      {loading ? (
         <Preloader />
       ) : (
         <form>

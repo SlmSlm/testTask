@@ -14,8 +14,6 @@ const SignUp = (props) => {
           addNewUser={props.addNewUser}
           page={props.page}
           setRegistered={setRegistered}
-          loading={props.loading}
-          setPreloader={props.setPreloader}
         />
       ) : (
         <SuccessRegistration />

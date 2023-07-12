@@ -47,11 +47,7 @@ function App() {
         showMore={showMore}
         loading={loading}
       />
-      <SignUp
-        addNewUser={addNewUser}
-        loading={loading}
-        setPreloader={setPreloader}
-      />
+      <SignUp addNewUser={addNewUser} />
     </div>
   );
 }
