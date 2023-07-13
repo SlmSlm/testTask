@@ -38,7 +38,12 @@ const UploadInput = (props) => {
         }`}
       >
         <span className={styles.uploadButton}>Upload</span>
-        <input type="file" onChange={onFileSelected} name="photo" />
+        <input
+          type="file"
+          onChange={onFileSelected}
+          name="photo"
+          accept=".jpeg, .jpg"
+        />
         <span
           className={`${styles.uploadField} ${
             selectedFile ? styles.uploadSelected : ""

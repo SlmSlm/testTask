@@ -43,7 +43,11 @@ const FormGroup = (props) => {
       props.setRegistered(true);
     } catch (e) {
       console.error(e.response.data.message);
-      alert(e.response.data.message);
+      console.error(e.response.status);
+      e.response.status === 422
+      //in case when user just renames any file to jpg
+        ? alert("This is not true jpg, u are cheater")
+        : alert(e.response.data.message);
     }
     setLoading(false);
   };
