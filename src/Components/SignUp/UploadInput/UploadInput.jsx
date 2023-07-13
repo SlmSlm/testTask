@@ -7,7 +7,7 @@ const UploadInput = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const isAllowedFileType = (file) => {
-    const allowedTypes = new Set(["image/jpeg", "image/png"]);
+    const allowedTypes = new Set(["image/jpeg", "image/jpg"]);
     return allowedTypes.has(file.type);
   };
   const onFileSelected = (event) => {
@@ -18,9 +18,7 @@ const UploadInput = (props) => {
       props.validateForm("photo", "remove");
     }
     if (!isAllowedFileType(file)) {
-      setErrorMessage(
-        "The filetype is not allowed, consider using .jpeg or .png images only."
-      );
+      setErrorMessage("The photo must be jpeg/jpg type images only.");
       props.validateForm("photo", "remove");
     } else if (file.size > 5000000) {
       setErrorMessage("file size must be less than 5MB.");

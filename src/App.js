@@ -17,10 +17,16 @@ function App() {
     setPreloader(true);
     setPage(page + 1);
     const result = await api.getUsers(page + 1);
-    setShowMore(result.links.next_url ? true : false);
-    const arr = [...users, ...result.users];
-    setUsers([...arr]);
-    setPreloader(false);
+    try {
+      await api.getUsers(page + 2);
+      setShowMore(true);
+    } catch {
+      setShowMore(false);
+    } finally {
+      const arr = [...users, ...result.users];
+      setUsers([...arr]);
+      setPreloader(false);
+    }
   }
 
   async function addNewUser() {
